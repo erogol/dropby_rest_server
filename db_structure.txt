@@ -1,0 +1,26 @@
+dropby.feeds:
+    id (id) : feed_id
+    user_id (id)  : feed owner user id
+    content (str) : content of the feed (support only text now)
+    target_user_id (id) : receiver user id. -1 if public
+    loc (tuple)   : lon/lat tuple of content geolocation
+    revealed (bool) : is feed revealed or not
+
+
+dropby.users:
+    id (id)
+    email
+    password
+    user_name
+    first_name
+    last_name
+    country
+    city
+    signup_method
+
+  dropby.sessions:
+    id (id)
+    user_id
+    token
+    create_date
+    expire_date

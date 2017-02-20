@@ -1,0 +1,38 @@
+from tornado import httpserver
+from tornado import gen
+from tornado.ioloop import IOLoop
+from pymongo import MongoClient
+import tornado.web
+import argparse
+import json
+
+class HomeHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write('You pinged DropBy REST API... Be Warned!!')
+
+class HomeHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write('You pinged DropBy REST API... Be Warned!!')
+
+class Application(tornado.web.Application):
+    def __init__(self):
+        handlers = [
+            (r"/?", HomeHandler),
+            (r"/feed_insert, )
+        ]
+        tornado.web.Application.__init__(self, handlers)
+
+def main(port, debug):
+    app = Application()
+    app.listen(port)
+    IOLoop.instance().start()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='DropBy server script...')
+    parser.add_argument('--port', type=int,  
+                        help='Port number')
+    parser.add_argument('--debug', type=bool, default=False,
+                        help='is debug enabled')
+    args = parser.parse_args()
+    print "Run server on port ", args.port
+    main(args.port, args.debug)

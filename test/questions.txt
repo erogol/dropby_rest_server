@@ -1,0 +1,2 @@
+1. What Google Map API returns with the location of the phone
+2.
